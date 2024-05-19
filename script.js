@@ -1,7 +1,7 @@
 let boxes = document.querySelectorAll(".box");
 let turn = "X";
 let isGameOver = false;
-let gameMode = "single"; // Default game mode is single player (against AI)
+let gameMode = "single"; 
 
 boxes.forEach(e => {
     e.innerHTML = "";
@@ -12,9 +12,9 @@ boxes.forEach(e => {
             cheakDraw();
             if (gameMode === "single" && !isGameOver) {
                 changeTurn();
-                setTimeout(makeAIMove, 500); // AI move
+                setTimeout(makeAIMove, 500); 
             } else if (gameMode === "two" && !isGameOver) {
-                changeTurn(); // Two players, alternate turns
+                changeTurn(); 
             }
         }
     });
@@ -26,7 +26,7 @@ function changeTurn() {
 }
 
 function cheakWin() {
-    // Win checking logic
+    
     let winConditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
         [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -51,7 +51,7 @@ function cheakWin() {
 }
 
 function cheakDraw() {
-    // Draw checking logic
+    
     if (!isGameOver) {
         let isDraw = true;
         boxes.forEach(e => {
@@ -91,7 +91,6 @@ document.querySelector("#play-again").addEventListener("click", () => {
     });
 });
 
-// Add event listeners to toggle game mode
 document.querySelector("#single-player").addEventListener("click", () => {
     gameMode = "single";
 });
